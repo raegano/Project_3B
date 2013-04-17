@@ -1,0 +1,51 @@
+		<iframe src="https://www.facebook.com/plugins/like.php?href=YOUR_URL"
+				scrolling="no" frameborder="0"
+				style="border:none; width:450px; height:80px"></iframe>
+				
+				<a id= "nowhere" onclick = "foo();" href = "javascript::void(0)" title="Click me">
+				
+				
+				
+				
+				
+				
+				<HEAD>
+<SCRIPT language="JavaScript">
+<!--
+function display_quote2()
+{
+var quote= new Array(5);
+var y=0;
+for (y=0; y<5; y++)
+{
+quote[y]=prompt('Enter a Quote!',' ');
+}
+var x=0;
+for (x=0; x<5; x++)
+{
+alert(quote[x]);
+}
+}
+//-->
+</SCRIPT>
+</HEAD>
+<BODY>
+<A HREF="javascript:display_quote2()">Click Here, I dare you!</A>
+
+
+	<br><br> <SELECT name="sport" onChange="alert('I\'m glad YOU can make choices!')">
+	<OPTION SELECTED>--Choose a Sport--
+	<OPTION>Football
+	<OPTION>Basketball
+	</SELECT> 
+	
+	
+	<br><br><FORM name="coolform1">
+<INPUT type="text" name="cooltext" value="I am Cool!!!" size="20">
+&nbsp;&nbsp;
+<INPUT type="button" name="change" value="Click to see new text!" onClick="document.coolform1.cooltext.value='You are cool too!!'">
+</FORM> 
+
+
+<A HREF="noplace" onMouseover="alert('Hey! Stop! I said not to hover over this link!')"> Don't hover over this link!</A> <br>
+</BODY> 

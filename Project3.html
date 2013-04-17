@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<title>Project 3</title>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+	</head>
+
+	<body>
+		
+		<div id ="stuff"></div>
+		<input name ="nowhere" value="Click Me" id="nowhere" type="button" onclick="foo(); "> <br>
+		
+
+		<script Language = Javascript>
+			var x;
+			
+			function foo()
+			{
+				var something = document.getElementById("stuff"); //Finding the div
+				console.log("Hello");
+				
+				if (something.innerHTML == "<h3> Hello </h3>")
+				{
+					something.innerHTML = "<h3> Bye </h3>";
+				}
+				else
+				{
+					something.innerHTML = "<h3> Hello </h3>";
+				}
+				
+			}
+		
+			function stuff()
+			{
+				var things = document.myform.mytext.value;
+				document.myform.texts.value = things;
+			}
+		
+			function showthings()
+			{
+				$.getJSON("https://graph.facebook.com/btaylor", function(data){
+
+					$.each(data, function(key, value){
+						document.write(key+": "+value+"<br />"); 
+					});
+				});
+			}
+
+		
+		
+		</script>
+		
+		<INPUT type="button" value="Change to Yellow!" name="button3" onClick="document.bgColor='blue'">
+		<INPUT type="button" value="Change back!" name="button5" onClick="document.bgColor='white'">  <br> <br>
+		
+		
+		
+		<br><INPUT type="button" value="Click here to see a pop up"onClick="alert('POP UP!')"> <br><br> 
+
+		
+		
+	<FORM name="myform"> 
+	<INPUT type="text" name="mytext" value="Not Much Here." size="30">
+	<INPUT TYPE="button" name="but1" value="Click!" onClick="stuff()">
+	<br> <INPUT type="text" name="texts" value="Make this change." size="30">
+	</FORM> 
+	
+	
+	<br> <INPUT type="button" name="thingswillhappen" value="Go to info!" size="30" onClick="showthings()" >	
+
+		
+	</body>
+</html>

@@ -1,0 +1,59 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+</head >
+
+<body>
+	<center><font color='white' size="6" face="Comic Sans">STEAM <i>Powered News</i></font></center>
+	
+	<script>
+		document.bgColor='#2E2E2E'
+		//get request
+		$.get(
+		" http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json ",{}, function(data){
+		console.log(data);
+		//alert(data.apilist.interfaces[0].methods.name);
+		//alert(data.appnews.newsitems[0].date);
+		}
+		);
+		
+	</script>
+
+	<DIV style="position: absolute; top:45px; left:0px; width:200px; height:25px">
+	<table id="shell" bgcolor="white" border="0" height="5" width="5000">
+	<tr>
+      <td>
+      </td>
+	</tr>
+	</table>
+	</DIV>
+	
+	
+
+	<br><FORM name="myform"> 
+	<INPUT TYPE="button" name="but1" value="Give me news!" onClick="stuff()" style="float: right;">
+	<INPUT type="text" name="mytext" value="Type in a game ID." size="30" style="float: right;">
+	
+	</FORM> 
+	<br><INPUT type="button" name="help" value="Help" style="float: right;">
+	
+	
+	<center><img src="http://pc.gamersmafia.com/storage/news/188/steam.png" /></center>
+	
+	<DIV style="position: absolute; top:70px; left:0px; width:200px; height:25px">
+	<table  bgcolor="white" border="0" height="800" width="300">
+	<tr>
+      <td>
+			Current comments on Facebook
+      </td>
+	</tr>
+	</table>
+	</DIV>
+	
+	
+	
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+</head >
+<body>
+
+	hi
+	<script>
+		//get request
+		$.get(
+		" http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json ",{}, function(data){
+		console.log(data);
+		//alert(data.apilist.interfaces[0].methods.name);
+		alert(data.appnews.newsitems[0].date);
+		}
+		);
+		
+	 
+	
+	</script>
+	
+</body>
+
+</html>
