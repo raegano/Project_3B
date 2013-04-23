@@ -1,5 +1,7 @@
 <html>
 <head>
+	<title>Project 3</title>
+	<script Language = Javascript> variable="WHAT IS UP!";</script>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
 
@@ -7,22 +9,93 @@
 
 <body>
 	<center><font color='white' size="6" face="Comic Sans">STEAM <i>Powered News</i></font></center>
-	
+	<body background="http://pc.gamersmafia.com/storage/news/188/steam.png" bgcolor="#2E2E2E" bgproperties="fixed">
 	<script>
+		variable = "HAYYYYYYY";
+		var heyyyyyy = "abc";
 		document.bgColor='#2E2E2E'
-		//get request
-		$.get(
-		" http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=440&count=3&maxlength=300&format=json ",{}, function(data){
-		console.log(data);
-		//alert(data.apilist.interfaces[0].methods.name);
-		//alert(data.appnews.newsitems[0].date);
+		var gameToLoad;
+		var startSteamURL = " http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=" ;
+		var endSteamURL = "&count=3&maxlength=300&format=json";
+		var steamURL;
+		var startfbURL = " https://graph.facebook.com/search?q=";
+		var endfbURL = "&type=post ";
+		var fbURL;var delay = 2;
+		function loadAPI()
+		{
+			$.get(
+			steamURL,{}, function(news){
+			console.log(news);
+			//alert(data.apilist.interfaces[0].methods.name);
+			//alert(data.appnews.newsitems[0].date);
+			}
+			);
+			
+			
+			$.get(
+			fbURL,{}, function(comments){
+			console.log(comments);
+			//alert(data.apilist.interfaces[0].methods.name);
+			//alert(data.appnews.newsitems[0].date);
+			}
+			);
 		}
-		);
-		
+		//Takes in a game ID and gives the game name
+		function toGameName(var1)
+		{
+			switch(var1)
+			{
+			case "440":
+			  return "Team Fortress 2";
+			  break;
+			case "441":
+			  return "Dota";
+			  break;
+			default:
+			  return "There is no game with that ID";
+			}
+		}
+		//Takes in a game name and gives the game ID
+		function toGameID(var1)
+		{
+			switch(var1)
+			{
+			case "Team Fortress 2":
+			  return "440";
+			  break;
+			case "Dota":
+			  return "441";
+			  break;
+			default:
+			  return "There is no game with that ID";
+			}
+		}
+		//Takes in the text from the textbox and does an API search for the game
+		function getNewGame()
+		{
+			gameToLoad = document.myform.mytext.value;
+			var gameID = toGameID(gameToLoad);
+			steamURL = startSteamURL + gameID + endSteamURL;
+			//var gameName = toGameName(gameToLoad);
+			fbURL = startfbURL + gameToLoad + endfbURL;
+			alert(steamURL);
+			alert(fbURL);
+			loadAPI();
+			foo();
+		}
+
+		function foo()
+		{
+				var something = document.getElementById("stuff"); //Finding the div
+				console.log("Hello");
+				something.innerHTML = "This is how you change things with the button. I think I can make other things happen but im not sure also I dont know how to change colors in here";
+				
+		}
+		//setTimeout(foo, delay * 1000);
 	</script>
 
 	<DIV style="position: absolute; top:45px; left:0px; width:200px; height:25px">
-	<table id="shell" bgcolor="white" border="0" height="5" width="5000">
+	<table id="shell" bgcolor="white" border="0" height="5" width="1600">
 	<tr>
       <td>
       </td>
@@ -33,26 +106,15 @@
 	
 
 	<br><FORM name="myform"> 
-	<INPUT TYPE="button" name="but1" value="Give me news!" onClick="stuff()" style="float: right;">
+	<INPUT TYPE="button" name="but1" value="Give me news!" onClick="getNewGame()" style="float: right;">
 	<INPUT type="text" name="mytext" value="Type in a game ID." size="30" style="float: right;">
 	
 	</FORM> 
-	<br><INPUT type="button" name="help" value="Help" style="float: right;">
+	<br><INPUT type="button" name="help" value="Help" style="float: right;" onClick="window.open('help.html','mywindow','width=400,height=200')">
 	
 	
-	<center><img src="http://pc.gamersmafia.com/storage/news/188/steam.png" /></center>
-	
-	<DIV style="position: absolute; top:70px; left:0px; width:200px; height:25px">
-	<table  bgcolor="white" border="0" height="800" width="300">
-	<tr>
-      <td>
-			Current comments on Facebook
-      </td>
-	</tr>
-	</table>
-	</DIV>
-	
-	
+	<br><center><font color='white' size="3" face="Comic Sans">This would be news things from the Steam API, Not sure what this should look like</font></center>
+	<div id ="stuff"></div>
 	
 </body>
 

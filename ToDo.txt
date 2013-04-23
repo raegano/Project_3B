@@ -1,0 +1,6 @@
+To do:
+
+Make the steam API output look nice and pretty
+Figure out how to connect the two frames to access variables from one frame to another (Right now its acting weird)
+	-Sidenote:" IF for whatever reason we can not get this frame thing to work then just use the Div thing and put a table in
+Make the FB API look nice and pretty on the menu frame

@@ -1,0 +1,82 @@
+<html>
+<script Language = Javascript>
+		var delay = 2  // Number of SECONDS to wait
+
+
+			function showModalLayer() {
+			  var modalElem = document.getElementById('divModalLayer');
+
+
+			  if(modalElem != null) {
+
+				modalElem.style.display = 'block';
+				centerElement(modalElem);
+				window.onresize = function() {
+				  centerElement(document.getElementById('divModalLayer'));
+				}
+			  }
+			}
+
+
+			function hideModalLayer() { // Call this function to hide it
+
+
+			  var modalElem = document.getElementById('divModalLayer');
+
+
+			  if(modalElem != null) {
+				modalElem.style.display = 'none';
+				window.onresize = null;
+			  }
+			}
+
+
+			function centerElement(elem) {
+			  var viewport = getViewportDimensions();
+			  var left = (viewport.width == 0) ? 50 : parseInt((viewport.width - elem.offsetWidth) / 2, 10);
+			  var top = (viewport.height == 0) ? 50 : parseInt((viewport.height - elem.offsetHeight) / 2, 10);
+
+
+			  elem.style.left = left + 'px';
+			  elem.style.top = top + 'px';
+
+
+			  viewport, left, top, elem = null;
+			}
+
+
+			function getViewportDimensions() {
+			  var intH = 0, intW = 0;
+
+
+			  if(self.innerHeight) {
+				intH = window.innerHeight;
+				intW = window.innerWidth;
+			  }
+			  else if(document.documentElement && document.documentElement.clientHeight) {
+				intH = document.documentElement.clientHeight;
+				intW = document.documentElement.clientWidth;
+			  }
+			  else if(document.body) {
+				intH = document.body.clientHeight;
+				intW = document.body.clientWidth;
+			  }
+
+
+			  return {
+				height: parseInt(intH, 10),
+				width: parseInt(intW, 10)
+			  };
+			}
+
+
+			setTimeout(showModalLayer, delay * 1000);
+	</script>
+	<body>
+			<div id="divModalLayer" style="border:solid 2px black; display:none; position:absolute; height:250px; width:400px;">
+		  <h1>Hey!</h1>
+		  <!-- Put whatever you need here -->
+		  things
+		</div>
+	</body>
+	</html>
