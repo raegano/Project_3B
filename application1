@@ -1,0 +1,337 @@
+<html>
+<head>
+  <title>Project 3</title>
+	<script Language = Javascript> variable="WHAT IS UP!";</script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+
+</head >
+
+<body>
+	<center><font color='white' size="6" face="Comic Sans">STEAM <i>Powered News</i></font></center>
+	<body background="http://pc.gamersmafia.com/storage/news/188/steam.png" bgcolor="#2E2E2E" bgproperties="fixed">
+	<script>
+		variable = "HAYYYYYYY";
+		var heyyyyyy = "abc";
+		document.bgColor='#2E2E2E'
+		var gameToLoad;
+		var startSteamURL = " http://api.steampowered.com/ISteamNews/GetNewsForApp/v0002/?appid=" ;
+		var endSteamURL = "&count=3&maxlength=300&format=json";
+		var steamURL;
+		var startfbURL = " https://graph.facebook.com/search?q=";
+		var endfbURL = "&type=post ";
+		var fbURL;var delay = 2;
+		function loadAPI()
+		{
+			$.get(
+			steamURL,{}, function(news){
+			console.log(news);
+			//alert(data.apilist.interfaces[0].methods.name);
+			//alert(data.appnews.newsitems[0].date);
+			}
+			);
+			
+			
+			$.get(
+			fbURL,{}, function(comments){
+			console.log(comments);
+			//alert(data.apilist.interfaces[0].methods.name);
+			//alert(data.appnews.newsitems[0].date);
+			}
+			);
+		}
+		//Takes in a game ID and gives the game name
+		function toGameName(var1)
+		{
+			switch(var1)
+			{
+			case "440":
+			  return "Team Fortress 2";
+			  break;
+			case "570":
+			  return "Dota 2";
+			  break;
+			case "10":
+			  return "Counter-Strike";
+			  break;
+			case "20":
+			  return "Team Fortress Classic";
+			  break;
+			case "30":
+			  return "Day of Defeat";
+			  break;
+			case "40":
+			  return "Deathmatch Classic";
+			  break;
+			case "50":
+			  return "Opposing Force";
+			  break;  
+			case "60":
+			  return "Ricochet";
+			  break;
+			case "70":
+			  return "Half-Life";
+			  break;
+			case "80":
+			  return "Condition Zero";
+			  break;
+			case "90":
+			  return "Counter-Strike 1.6 dedicated server";
+			  break;
+			case "100":
+			  return "Condition Zero Deleted Scenes";
+			  break;
+			case "130":
+			  return "Half-Life: Blue Shift";
+			  break;
+			case "220":
+			  return "Half-Life 2";
+			  break;
+			case "240":
+			  return "Counter-Strike: Source";
+			  break;
+			case "280":
+			  return "Half-Life: Source";
+			  break;
+			case "300":
+			  return "Day of Defeat: Source";
+			  break;
+			case "320":
+			  return "Half-Life 2: Deathmatch";
+			  break;
+			case "340":
+			  return "Half-Life 2: Lost Coast";
+			  break;
+			case "360":
+			  return "Half-Life Deathmatch: Source";
+			  break;
+			case "380":
+			  return "Half-Life 2: Episode One";
+			  break;
+			case "400":
+			  return "Portal";
+			  break;
+			case "420":
+			  return "Half-Life 2: Episode Two";
+			  break;
+			case "500":
+			  return "Left 4 Dead";
+			  break;
+			case "550":
+			  return "Left 4 Dead 2";
+			  break;
+			case "620":
+			  return "Portal 2";
+			  break;
+			case "630":
+			  return "Alien Swarm";
+			  break;
+			case "1300":
+			  return "SiN Episodes: Emergence";
+			  break;
+			case "1800":
+			  return "Counter-Strike: Global Offensive";
+			  break;
+			case "2100":
+			  return "Dark Messiah of Might and Magic";
+			  break;
+			case "2400":
+			  return "The Ship";
+			  break;
+			case "2450":
+			  return "Bloody Good Time";
+			  break;
+			case "2600":
+			  return "Vampire The Masquerade-Bloodlines";
+			  break;
+			case "4000":
+			  return "Garry's Mod";
+			  break;
+			case "17500":
+			  return "Zombie Panic!";
+			  break;
+			case "17510":
+			  return "Age of Chivalry";
+			  break;
+			case "17520":
+			  return "Synergy";
+			  break;
+			case "17550":
+			  return "Eternal Silence";
+			  break;
+			default:
+			  return "There is no game with that ID";
+			}
+		}
+		//Takes in a game name and gives the game ID
+		function toGameID(var1)
+		{
+			switch(var1)
+			{
+			case "Team Fortress 2":
+			  return "440";
+			  break;
+			case "Dota 2":
+			  return "570";
+			  break;
+			case "Counter-Strike":
+			  return "10";
+			  break;
+			case "Team Fortress Classic":
+			  return "20";
+			  break;
+			case "Day of Defeat":
+			  return "30";
+			  break;
+			case "Deathmatch Classic":
+			  return "40";
+			  break;
+			case "Opposing Force":
+			  return "50";
+			  break;  
+			case "Ricochet":
+			  return "60";
+			  break;
+			case "Half-Life":
+			  return "70";
+			  break;
+			case "Condition Zero":
+			  return "80";
+			  break;
+			case "Counter-Strike 1.6 dedicated server":
+			  return "90";
+			  break;
+			case "Condition Zero Deleted Scenes":
+			  return "100";
+			  break;
+			case "Half-Life: Blue Shift":
+			  return "130";
+			  break;
+			case "Half-Life 2":
+			  return "220";
+			  break;
+			case "Counter-Strike: Source":
+			  return "240";
+			  break;
+			case "Half-Life: Source":
+			  return "280";
+			  break;
+			case "Day of Defeat: Source":
+			  return "300";
+			  break;
+			case "Half-Life 2: Deathmatch":
+			  return "320";
+			  break;
+			case "Half-Life 2: Lost Coast":
+			  return "340";
+			  break;
+			case "Half-Life Deathmatch: Source":
+			  return "360";
+			  break;
+			case "Half-Life 2: Episode One":
+			  return "380";
+			  break;
+			case "Portal":
+			  return "400";
+			  break;
+			case "Half-Life 2: Episode Two":
+			  return "420";
+			  break;
+			case "Left 4 Dead":
+			  return "500";
+			  break;
+			case "Left 4 Dead 2":
+			  return "550";
+			  break;
+			case "Portal 2":
+			  return "620";
+			  break;
+			case "Alien Swarm":
+			  return "630";
+			  break;
+			case "SiN Episodes: Emergence":
+			  return "1300";
+			  break;
+			case "Counter-Strike: Global Offensive":
+			  return "1800";
+			  break;
+			case "Dark Messiah of Might and Magic":
+			  return "2100";
+			  break;
+			case "The Ship":
+			  return "2400";
+			  break;
+			case "Bloody Good Time":
+			  return "2450";
+			  break;
+			case "Vampire The Masquerade-Bloodlines":
+			  return "2600";
+			  break;
+			case "Garry's Mod":
+			  return "4000";
+			  break;
+			case "Zombie Panic!":
+			  return "17500";
+			  break;
+			case "Age of Chivalry":
+			  return "17510";
+			  break;
+			case "Synergy":
+			  return "17520";
+			  break;
+			case "Eternal Silence":
+			  return "17550";
+			  break;
+			default:
+			  return "There is no game with that ID";
+			}
+		}
+		//Takes in the text from the textbox and does an API search for the game
+		function getNewGame()
+		{
+			gameToLoad = document.myform.mytext.value;
+			var gameID = toGameID(gameToLoad);
+			steamURL = startSteamURL + gameID + endSteamURL;
+			//var gameName = toGameName(gameToLoad);
+			fbURL = startfbURL + gameToLoad + endfbURL;
+			alert(steamURL);
+			alert(fbURL);
+			loadAPI();
+			foo();
+		}
+
+		function foo()
+		{
+				var something = document.getElementById("stuff"); //Finding the div
+				console.log("Hello");
+				something.innerHTML = "This is how you change things with the button. I think I can make other things happen but im not sure also I dont know how to change colors in here";
+				
+		}
+		//setTimeout(foo, delay * 1000);
+	</script>
+
+	<DIV style="position: absolute; top:45px; left:0px; width:200px; height:25px">
+	<table id="shell" bgcolor="white" border="0" height="5" width="1600">
+	<tr>
+      <td>
+      </td>
+	</tr>
+	</table>
+	</DIV>
+	
+	
+
+	<br><FORM name="myform"> 
+	<INPUT TYPE="button" name="but1" value="Give me news!" onClick="getNewGame()" style="float: right;">
+	<INPUT type="text" name="mytext" value="Type in a game ID." size="30" style="float: right;">
+	
+	</FORM> 
+	<br><INPUT type="button" name="help" value="Help" style="float: right;" onClick="window.open('help.html','mywindow','width=400,height=200')">
+	
+	
+	<br><center><font color='white' size="3" face="Comic Sans">This would be news things from the Steam API, Not sure what this should look like</font></center>
+	<div id ="stuff"></div>
+	
+</body>
+
+</html>
